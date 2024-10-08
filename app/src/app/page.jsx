@@ -4,19 +4,20 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 import './style.css'
 import Aside from './Aside'
+import TopRated from './TopRated'
 
 const Page = () => {
 
+  const apiKey = process.env.NEXT_PUBLIC_OMDB_API_KEY;
+
   const [movies, setMovies] = useState([])
-  const MoviesList = ['The Dark Knight', 'Breaking Bad', 'Vikings', 'Teen Wolf']
+  const MoviesList = ['Avatar', 'Breaking Bad', 'Vikings', 'Prison Break']
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const API_KEY = 'a4997432';
       const moviePromises = MoviesList.map(e =>
-        axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&t=${e}`)
+        axios.get(`http://www.omdbapi.com/?apiKey=a4997432&t=${e}`)
       );
-
 
       const responses = await Promise.all(moviePromises);
       setMovies(responses.map(response => response.data));
@@ -29,6 +30,7 @@ const Page = () => {
     <div className='container-xl d-flex justify-content-center align-items-center '>
 
       <Aside />
+      <TopRated />
 
       <div className='justify-center flex'>
         <ul className='mt-[150px] flex justify-center sm:flex-row sm:gap-10 items-center flex-col text-center'>

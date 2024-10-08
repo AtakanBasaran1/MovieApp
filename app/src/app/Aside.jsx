@@ -24,7 +24,7 @@ const Aside = () => {
     }, []);
 
     return (
-        <div className='mt-[130px] flex justify-center relative'>
+        <div className=' flex justify-center relative'>
             <div>
                 <img className='w-[500px] h-[200px] sm:w-[1550px] sm:h-[500px]' src={venom.src} alt="" />
                 <ul className='mt-[-300px] ml-10 absolute text-white'>
